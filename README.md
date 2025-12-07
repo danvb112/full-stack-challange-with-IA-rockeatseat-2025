@@ -1,1 +1,3 @@
 # full-stack-challange-with-IA-rockeatseat-2025
+
+In this project, we implemented an integration with the Google Gemini API (gemini-2.0-flash-exp) using Vercel AI SDK for automatic generation of TypeScript code for webhook handlers. A payload analysis system with structure detection and correction suggestions was implemented. An interactive interface for code generation included webhook selection checkboxes. Seeders were used with Faker.js for test data. An optimized production build was created with Vite.
