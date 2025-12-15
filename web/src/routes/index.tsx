@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
 import { Sidebar } from '../components/sidebar'
+import { WebhookDetailHeader } from '../components/webhook-detail-header'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -17,7 +18,9 @@ function Index() {
         <PanelResizeHandle className="w-px bg-zinc-700 hover:bg-zinc-600 transition-colors duration-150" />
 
         <Panel defaultSize={80} minSize={60}>
-          Main Content
+          <div className="flex h-full flex-col">
+            <WebhookDetailHeader />
+          </div>
         </Panel>
       </PanelGroup>
     </div>
