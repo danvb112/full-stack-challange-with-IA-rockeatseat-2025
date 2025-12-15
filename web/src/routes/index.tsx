@@ -2,12 +2,33 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels'
 import { Sidebar } from '../components/sidebar'
 import { WebhookDetailHeader } from '../components/webhook-detail-header'
+import { SectionTitle } from '../components/section-title'
+import { SectionDataTable } from '../components/section-data-table'
 
 export const Route = createFileRoute('/')({
   component: Index,
 })
 
 function Index() {
+  const overviewData = [
+    {
+      key: 'Method',
+      value: 'POST',
+    },
+    {
+      key: 'Status Code',
+      value: '200',
+    },
+    {
+      key: 'Content-Type',
+      value: 'application/json',
+    },
+    {
+      key: 'Content-Length',
+      value: '342 bytes',
+    }
+  ]
+
   return (
     <div className="h-screen bg-zinc-900">
       <PanelGroup direction="horizontal">
@@ -20,6 +41,15 @@ function Index() {
         <Panel defaultSize={80} minSize={60}>
           <div className="flex h-full flex-col">
             <WebhookDetailHeader />
+            <div className='flex-1 overflow-y-auto'>
+              <div className=' space-y-6 p-6'>
+                <div className='space-y-4'>
+                  <SectionTitle>Request Overview</SectionTitle>
+                  <SectionDataTable data={overviewData} />
+                </div>
+              </div>
+
+            </div>
           </div>
         </Panel>
       </PanelGroup>
