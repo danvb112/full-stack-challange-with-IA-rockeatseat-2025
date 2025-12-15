@@ -26,7 +26,7 @@ function Index() {
     {
       key: 'Content-Length',
       value: '342 bytes',
-    }
+    },
   ]
 
   return (
@@ -41,14 +41,13 @@ function Index() {
         <Panel defaultSize={80} minSize={60}>
           <div className="flex h-full flex-col">
             <WebhookDetailHeader />
-            <div className='flex-1 overflow-y-auto'>
-              <div className=' space-y-6 p-6'>
-                <div className='space-y-4'>
+            <div className="flex-1 overflow-y-auto">
+              <div className=" space-y-6 p-6">
+                <div className="space-y-4">
                   <SectionTitle>Request Overview</SectionTitle>
                   <SectionDataTable data={overviewData} />
                 </div>
               </div>
-
             </div>
           </div>
         </Panel>
