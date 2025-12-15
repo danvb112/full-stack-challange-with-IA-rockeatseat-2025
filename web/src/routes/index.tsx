@@ -4,6 +4,7 @@ import { Sidebar } from '../components/sidebar'
 import { WebhookDetailHeader } from '../components/webhook-detail-header'
 import { SectionTitle } from '../components/section-title'
 import { SectionDataTable } from '../components/section-data-table'
+import { CodeBlock } from '../components/ui/code-block'
 
 export const Route = createFileRoute('/')({
   component: Index,
@@ -46,6 +47,7 @@ function Index() {
                 <div className="space-y-4">
                   <SectionTitle>Request Overview</SectionTitle>
                   <SectionDataTable data={overviewData} />
+                  <CodeBlock code={JSON.stringify(overviewData, null, 2)} />
                 </div>
               </div>
             </div>
