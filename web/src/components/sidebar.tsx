@@ -20,11 +20,6 @@ export function Sidebar() {
       </div>
 
       <WebhookList />
-      <WebhookList />
-      <WebhookList />
-      <WebhookList />
-      <WebhookList />
-      <WebhookList />
     </div>
   )
 }
