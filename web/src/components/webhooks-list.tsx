@@ -1,9 +1,9 @@
-import { useQuery } from '@tanstack/react-query'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { webhookListSchema } from '../http/schemas/webhooks'
 import { WebhookListItem } from './webhook-list-item'
 
 export function WebhookList() {
-  const { data, isLoading } = useQuery({
+  const { data } = useSuspenseQuery({
     queryKey: ['webhooks'],
     queryFn: async () => {
       const response = await fetch('http://localhost:3333/api/webhooks')
@@ -16,11 +16,9 @@ export function WebhookList() {
   return (
     <div className='flex-1 overflow-y-auto'>
       <div className='space-y-1 p-2'>
-        <WebhookListItem />
-        <WebhookListItem />
-        <WebhookListItem />
-        <WebhookListItem />
-        <WebhookListItem />
+        {data.webhooks.map((webhook) => {
+          return <WebhookListItem key={webhook.id} webhook={webhook}/>
+        })}
       </div>
     </div>
   )
