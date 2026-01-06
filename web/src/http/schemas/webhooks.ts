@@ -1,4 +1,4 @@
-import {z} from 'zod'
+import { z } from 'zod'
 
 export const webhookListItemSchema = z.object({
   id: z.uuidv7(),
@@ -8,6 +8,6 @@ export const webhookListItemSchema = z.object({
 })
 
 export const webhookListSchema = z.object({
-    webhooks: z.array(webhookListItemSchema),
-    nextCursor: z.string(),
+  webhooks: z.array(webhookListItemSchema),
+  nextCursor: z.string(),
 })

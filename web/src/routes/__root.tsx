@@ -16,7 +16,7 @@ const RootLayout = () => (
         <PanelResizeHandle className="w-px bg-zinc-700 hover:bg-zinc-600 transition-colors duration-150" />
 
         <Panel defaultSize={80} minSize={60}>
-              <Outlet />
+          <Outlet />
         </Panel>
       </PanelGroup>
     </div>
