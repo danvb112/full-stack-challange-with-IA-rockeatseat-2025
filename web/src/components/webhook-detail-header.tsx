@@ -1,10 +1,10 @@
 import { Badge } from './ui/badge'
 
 export interface WebhookDetailHeaderProps {
-  method: string;
-  pathname: string;
-  ip: string;
-  createdAt: Date;
+  method: string
+  pathname: string
+  ip: string
+  createdAt: Date
 }
 
 export function WebhookDetailHeader({
@@ -27,7 +27,15 @@ export function WebhookDetailHeader({
         <span className="w-px h-4 bg-zinc-700" />
         <div className="flex items-center gap-1 text-sm text-zinc-400">
           <span>at</span>
-          <span>{createdAt.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</span>
+          <span>
+            {createdAt.toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+            })}
+          </span>
         </div>
       </div>
     </div>
