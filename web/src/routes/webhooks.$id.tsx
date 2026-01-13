@@ -44,7 +44,12 @@ function RouteComponent() {
 
   return (
     <div className="flex h-full flex-col">
-      <WebhookDetailHeader />
+      <WebhookDetailHeader
+        method={data.method}
+        pathname={data.pathname}
+        ip={data.ip}
+        createdAt={data.createdAt}
+      />
       <div className="flex-1 overflow-y-auto">
         <div className=" space-y-6 p-6">
           <div className="space-y-4">
