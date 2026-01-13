@@ -20,24 +20,15 @@ export function WebhookDetails({ id }: WebhookDetailsProps) {
     },
   })
 
-  const overviewData = [
-    {
-      key: 'Method',
-      value: data.method,
+  const headers = Object.entries(data.headers).map(([key, value]) => {
+    return { key, value: String(value) }
+  })
+
+  const queryParams = Object.entries(data.queryParams || {}).map(
+    ([key, value]) => {
+      return { key, value: String(value) }
     },
-    {
-      key: 'Status Code',
-      value: String(data.statusCode),
-    },
-    {
-      key: 'Content-Type',
-      value: data.contentType || 'application/json',
-    },
-    {
-      key: 'Content-Length',
-      value: `${data.contentLength || 0} bytes`,
-    },
-  ]
+  )
 
   return (
     <div className="flex h-full flex-col">
@@ -50,9 +41,22 @@ export function WebhookDetails({ id }: WebhookDetailsProps) {
       <div className="flex-1 overflow-y-auto">
         <div className=" space-y-6 p-6">
           <div className="space-y-4">
-            <SectionTitle>Request Overview</SectionTitle>
-            <SectionDataTable data={overviewData} />
-            <CodeBlock code={JSON.stringify(overviewData, null, 2)} />
+            <SectionTitle>Headers</SectionTitle>
+            <SectionDataTable data={headers} />
+
+            {queryParams.length > 0 && (
+              <div className="space-y-4">
+                <SectionTitle>Query Parameters</SectionTitle>
+                <SectionDataTable data={queryParams} />
+              </div>
+            )}
+
+            {!!data.body && (
+              <div className="space-y-4">
+                <SectionTitle>Request Body</SectionTitle>
+                <CodeBlock code={data.body} />
+              </div>
+            )}
           </div>
         </div>
       </div>
